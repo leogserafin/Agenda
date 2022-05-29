@@ -28,7 +28,6 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCadastrar"
         style="@style/Button"
-        android:layout_marginBottom="10dp"
         android:text="Cadastrar"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"

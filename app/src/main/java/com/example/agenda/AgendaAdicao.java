@@ -11,6 +11,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.agenda.database.DBHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,8 +24,13 @@ import android.view.ViewGroup;
  */
 public class AgendaAdicao extends Fragment {
 
+    DBHelper db;
+    private EditText et_nome, et_telefone;
+    private Spinner sp_tipo;
     private AppCompatButton button_Voltar;
-//    public AgendaAdicao() {
+    private AppCompatButton button_Cadastrar;
+
+    //    public AgendaAdicao() {
 //        // Required empty public constructor
 //    }
     public static AgendaAdicao newInstance(String param1, String param2) {
@@ -31,6 +41,8 @@ public class AgendaAdicao extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -45,10 +57,26 @@ public class AgendaAdicao extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         IniciarComponentes(view);
 
+        db = new DBHelper(this.getContext());
+
         button_Voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 hideFragment();
+            }
+        });
+
+        button_Cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nome = et_nome.getText().toString();
+                String telefone = et_telefone.getText().toString();
+                if(nome.isEmpty() || telefone.isEmpty()){
+
+                }else{
+                    db.Insert_Contato(nome, telefone, 1);
+                    hideFragment();
+                }
             }
         });
     }
@@ -60,6 +88,10 @@ public class AgendaAdicao extends Fragment {
     }
 
     private void IniciarComponentes(@NonNull View view){
+        et_nome = view.findViewById(R.id.CContatoEditTextNome);
+        et_telefone = view.findViewById(R.id.CContatoEditTextTelefone);
+        sp_tipo = view.findViewById(R.id.spinner);
         button_Voltar = view.findViewById(R.id.btnCadastrarVoltar);
+        button_Cadastrar = view.findViewById(R.id.btnCadastrarCadastrar);
     }
 }

@@ -38,15 +38,14 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCadastrarCadastrar"
         style="@style/Button"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="380dp"
         android:text="Cadastrar"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCadastrarVoltar"
         style="@style/Button"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="460dp"
         android:text="Voltar"
         android:textColor="@color/white"
         />

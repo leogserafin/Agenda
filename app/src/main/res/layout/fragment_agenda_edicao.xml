@@ -38,7 +38,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEdicaoDeletar"
         style="@style/Button"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="400dp"
         android:text="Deletar"
         android:textColor="@color/white"
         />
@@ -46,7 +46,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEdicaoSalvar"
         style="@style/Button"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="480dp"
         android:text="Salvar"
         android:textColor="@color/white"
         />
@@ -54,7 +54,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEdicaoVoltar"
         style="@style/Button"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="560dp"
         android:text="Voltar"
         android:textColor="@color/white"
         />

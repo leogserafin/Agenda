@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void listarContatos() {
+    public void listarContatos() {
         Cursor c = db.SelectAll_Contato();
         c.moveToFirst();
         if(c.getCount()>0){

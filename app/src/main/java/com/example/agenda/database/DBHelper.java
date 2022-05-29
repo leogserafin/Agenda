@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.agenda.AgendaAdicao;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     private static int version = 12;
