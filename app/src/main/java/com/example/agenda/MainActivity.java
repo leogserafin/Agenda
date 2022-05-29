@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView lvAgenda;
     private AppCompatButton btn_add;
     private AgendaAdicao agendaAdicao = new AgendaAdicao();
+    private AgendaEdicao agendaEdicao = new AgendaEdicao();
+
     private DBHelper db;
     private ArrayList<String> listaAgenda;
 
@@ -40,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, listaAgenda
         );
+
+	   lvAgenda.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.MainFrameLayout, agendaEdicao).commit();
+            }
+        });
 
         lvAgenda.setAdapter(adapter);
 

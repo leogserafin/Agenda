@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgendaEdicao"
+    android:background="@color/white">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/EditarContatoTextView"
+        style="@style/TextView"
+        android:text="Editar contato" />
+
+    <EditText
+        android:id="@+id/EContatoEditTextNome"
+        style="@style/EditText"
+        android:inputType="textUri"
+        android:layout_marginTop="100dp"
+        android:hint="Nome"/>
+
+    <Spinner
+        android:id="@+id/EditarSpinner"
+        style="@style/Spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="185dp"
+        android:drawableLeft="@drawable/ic_baseline_arrow_drop_down_24"
+        android:entries="@array/spinnerItens" />
+
+    <EditText
+        android:id="@+id/EContatoEditTextTelefone"
+        style="@style/EditText"
+        android:inputType="textUri"
+        android:layout_marginTop="270dp"
+        android:hint="Telefone"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEdicaoDeletar"
+        style="@style/Button"
+        android:layout_marginTop="500dp"
+        android:text="Deletar"
+        android:textColor="@color/white"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEdicaoSalvar"
+        style="@style/Button"
+        android:layout_marginTop="580dp"
+        android:text="Salvar"
+        android:textColor="@color/white"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEdicaoVoltar"
+        style="@style/Button"
+        android:layout_marginTop="660dp"
+        android:text="Voltar"
+        android:textColor="@color/white"
+        />
+
+</FrameLayout>
