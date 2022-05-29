@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 int id = c.getInt(c.getColumnIndex("id"));
                 String nome = c.getString(c.getColumnIndex("nome"));
                 String tel = c.getString(c.getColumnIndex("tel"));
+                int tipo = c.getInt(c.getColumnIndex("tipo"));
 
                 listaAgenda.add(nome);
             }while(c.moveToNext());

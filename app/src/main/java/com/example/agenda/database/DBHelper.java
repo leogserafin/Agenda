@@ -10,17 +10,17 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static int version = 11;
+    private static int version = 12;
     private static String nomeDB = "Agenda.db";
 
-    //dados do banco: tabela contato -> id, nome,tel
+    //dados do banco: tabela contato -> id, nome,tel,tipo
 
     String[] sql = {
-            "CREATE TABLE contato (id INTEGER AUTO_INCREMENT PRIMARY KEY,nome TEXT,tel TEXT);",
-            "INSERT INTO contato VALUES(1, 'zLeonardo', '47 992807006')",
-            "INSERT INTO contato VALUES(2, 'aLeonardo', '47 992807006')",
-            "INSERT INTO contato VALUES(3, 'BLeonardo', '47 992807006')",
-            "INSERT INTO contato VALUES(4, 'Marco', '47 992207008')"
+            "CREATE TABLE contato (id INTEGER AUTO_INCREMENT PRIMARY KEY,nome TEXT,tel TEXT, tipo INTEGER);",
+            "INSERT INTO contato VALUES(1, 'zLeonardo', '47 992807006', 0)",
+            "INSERT INTO contato VALUES(2, 'aLeonardo', '47 992807006', 0)",
+            "INSERT INTO contato VALUES(3, 'BLeonardo', '47 992807006', 0)",
+            "INSERT INTO contato VALUES(4, 'Marco', '47 992207008', 0)"
     };
 
     public DBHelper(@Nullable Context context) {
@@ -41,20 +41,22 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long Insert_Contato(String nome, String tel){
+    public long Insert_Contato(String nome, String tel, int tipo){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("nome", nome);
         cv.put("tel", tel);
+        cv.put("tipo", tipo);
 
         return db.insert("contato", null, cv);
     }
 
-    public long Update_Contato(int id, String nome, String tel){
+    public long Update_Contato(int id, String nome, String tel, int tipo){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("nome", nome);
         cv.put("tel", tel);
+        cv.put("tipo", tipo);
 
         return db.update("contato", cv, "id=?",new String[]{String.valueOf(id)});
     }
