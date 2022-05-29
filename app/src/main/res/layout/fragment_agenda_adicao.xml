@@ -3,12 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgendaAdicao">
+    tools:context=".AgendaAdicao"
+    android:background="@color/white" >
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/cadastrarContatoTextView"
+        style="@style/TextView"
+        android:text="Cadastrar novo contato" />
+    
+    <EditText
+        android:id="@+id/CContatoEditTextNome"
+        style="@style/EditText"
+        android:inputType="textUri"
+        android:layout_marginTop="100dp"
+        android:hint="Nome"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@style/Spinner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="185dp"
+        android:drawableLeft="@drawable/ic_baseline_arrow_drop_down_24"
+        android:entries="@array/spinnerItens" />
+
+    <EditText
+        android:id="@+id/CContatoEditTextTelefone"
+        style="@style/EditText"
+        android:inputType="textUri"
+        android:layout_marginTop="270dp"
+        android:hint="Telefone"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCadastrarCadastrar"
+        style="@style/Button"
+        android:layout_marginTop="580dp"
+        android:text="Cadastrar"
+        android:textColor="@color/white"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCadastrarVoltar"
+        style="@style/Button"
+        android:layout_marginTop="660dp"
+        android:text="Voltar"
+        android:textColor="@color/white"
+        />
+
 
 </FrameLayout>
