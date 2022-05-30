@@ -44,6 +44,8 @@ public class AgendaEdicao extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         IniciarComponentes(view);
 
+
+
         button_Voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

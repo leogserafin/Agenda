@@ -2,6 +2,7 @@ package com.example.agenda;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.collection.ArraySet;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.database.Cursor;
@@ -17,13 +18,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static DBHelper db;
+    private static ArrayList<String> listaAgenda;
     private ListView lvAgenda;
     private AppCompatButton btn_add;
     private AgendaAdicao agendaAdicao = new AgendaAdicao();
     private AgendaEdicao agendaEdicao = new AgendaEdicao();
 
-    private DBHelper db;
-    private ArrayList<String> listaAgenda;
 
 
     @Override
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         db=new DBHelper(this);
 
-        listaAgenda = new ArrayList<>();
+        listaAgenda = new ArrayList<String>();
 
         listarContatos();
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
                 ft.replace(R.id.MainFrameLayout, agendaEdicao).commit();
             }
         });
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void listarContatos() {
+    public static void listarContatos() {
         Cursor c = db.SelectAll_Contato();
         c.moveToFirst();
         if(c.getCount()>0){
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 int id = c.getInt(c.getColumnIndex("id"));
                 String nome = c.getString(c.getColumnIndex("nome"));
                 String tel = c.getString(c.getColumnIndex("tel"));
-                int tipo = c.getInt(c.getColumnIndex("tipo"));
+                String tipo = c.getString(c.getColumnIndex("tipo"));
 
                 listaAgenda.add(nome);
             }while(c.moveToNext());

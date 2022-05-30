@@ -12,17 +12,17 @@ import com.example.agenda.AgendaAdicao;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static int version = 12;
+    private static int version = 16;
     private static String nomeDB = "Agenda.db";
 
     //dados do banco: tabela contato -> id, nome,tel,tipo
 
     String[] sql = {
-            "CREATE TABLE contato (id INTEGER AUTO_INCREMENT PRIMARY KEY,nome TEXT,tel TEXT, tipo INTEGER);",
-            "INSERT INTO contato VALUES(1, 'zLeonardo', '47 992807006', 0)",
-            "INSERT INTO contato VALUES(2, 'aLeonardo', '47 992807006', 0)",
-            "INSERT INTO contato VALUES(3, 'BLeonardo', '47 992807006', 0)",
-            "INSERT INTO contato VALUES(4, 'Marco', '47 992207008', 0)"
+            "CREATE TABLE contato (id INTEGER AUTO_INCREMENT PRIMARY KEY,nome TEXT,tel TEXT, tipo TEXT);",
+            "INSERT INTO contato VALUES(1, 'Leonardo', '47 992807006', 'Casa')",
+            "INSERT INTO contato VALUES(2, 'Bruno', '47 992807006', 'Casa')",
+            "INSERT INTO contato VALUES(3, 'Matheus', '47 992807006', 'Celular')",
+            "INSERT INTO contato VALUES(4, 'Marco', '47 992207008', 'Trabalho')"
     };
 
     public DBHelper(@Nullable Context context) {
@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long Insert_Contato(String nome, String tel, int tipo){
+    public long Insert_Contato(String nome, String tel, String tipo){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("nome", nome);
@@ -53,7 +53,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.insert("contato", null, cv);
     }
 
-    public long Update_Contato(int id, String nome, String tel, int tipo){
+    public long Update_Contato(int id, String nome, String tel, String tipo){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("nome", nome);

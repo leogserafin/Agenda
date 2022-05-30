@@ -71,11 +71,16 @@ public class AgendaAdicao extends Fragment {
             public void onClick(View view) {
                 String nome = et_nome.getText().toString();
                 String telefone = et_telefone.getText().toString();
+                String tipo = sp_tipo.getSelectedItem().toString();
                 if(nome.isEmpty() || telefone.isEmpty()){
-
+                    Toast toast = Toast.makeText(getContext(), "Preencha os campos", Toast.LENGTH_SHORT);
+                    toast.show();
                 }else{
-                    db.Insert_Contato(nome, telefone, 1);
+                    db.Insert_Contato(nome, telefone, tipo);
+                    MainActivity.listarContatos();
                     hideFragment();
+                    et_nome.setText("");
+                    et_telefone.setText("");
                 }
             }
         });
